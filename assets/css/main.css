@@ -159,9 +159,10 @@ input, select, textarea {
 		text-decoration: none;
 	}
 
+/*controls features of button or whatever when you hover over it with mouse */
 		a:hover {
 			border-bottom-color: transparent;
-			color: #9bf1ff !important;
+			color: #000000 !important;
 		}
 
 		a:active {
