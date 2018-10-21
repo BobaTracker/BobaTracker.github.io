@@ -9,9 +9,21 @@
 		<title>BobaTracker - by BobaBois</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1533195059" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
+		<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+	  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+	  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+	  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+		<script src="https://js.api.here.com/v3/3.0/mapsjs-core.js"
+  		type="text/javascript" charset="utf-8"></script>
+		<script src="https://js.api.here.com/v3/3.0/mapsjs-service.js"
+  		type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
@@ -72,11 +84,9 @@
     </script>
 	</head>
 	<body class="is-preload">
-				
+
 		<!-- Wrapper -->
 			<div id="wrapper">
-				<div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxdUDfaaTkqDYKh3QGm_naKA7SxtdVHuw&libraries=places&callback=initMap" async defer></script>
 
 				<!-- Header -->
 				<!-- Note: The "styleN" class below should match that of the banner element. -->
@@ -108,20 +118,27 @@
 
 				<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
+				<section id="banner" class="style2">
 						<div class="inner">
 							<span class="image">
 								<img src="images/pic07.jpg" alt="" />
 							</span>
 							<header class="major">
-								<h1>Boba Tracker</h1>
+								<h1>Boba Shop Locator</h1>
 							</header>
 							<div class="content">
-								<p>The birth of Boba explained.<br />
+								<p>Locate boba shops near your location!<br />
 								</p>
 							</div>
 						</div>
-					</section>
+				</section>
+
+				<!--map hopefully-->
+			<!--	<section id="banner" class="style2">-->
+					<div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxdUDfaaTkqDYKh3QGm_naKA7SxtdVHuw&libraries=places&callback=initMap" async defer></script>
+						</script>
+	<!--			</section>-->
 
 				<!-- Main -->
 					<div id="main">
@@ -130,45 +147,40 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h2>Boba: Origin Story</h2>
+										<h2>Find a boba shop near you!</h2>
 									</header>
-									<p>Boba (n) - a cold, frothy drink made with iced tea, sweetened milk or other flavorings, and usually with sweet black balls or “pearls” made from tapioca. -Google definitions</p>
+									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.</p>
 								</div>
 							</section>
-						
+
 						<!-- Two -->
 							<section id="two" class="spotlights">
 								<section>
 									<a href="generic.html" class="image">
 										<img src="images/pic08.jpg" alt="" data-position="center center" />
 									</a>
-									
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3>Trending Craze</h3>
+												<h3>Orci maecenas</h3>
 											</header>
-											<p>Boba tea, a popular drink originating from Taiwan, has been a trending craze among both young and old for almost three decades. Created in the 80s, true credit for the fashionable drink's origins are unknown.</p>
+											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
 											<ul class="actions">
 												<li><a href="generic.html" class="button">Learn more</a></li>
 											</ul>
 										</div>
 									</div>
 								</section>
-
-								
-								
 								<section>
 									<a href="generic.html" class="image">
 										<img src="images/pic09.jpg" alt="" data-position="top center" />
 									</a>
-									
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3>The Origins</h3>
+												<h3>Rhoncus magna</h3>
 											</header>
-											<p>Tea shop owner Liu Han-Chieh and his product development manager, Lin Hsui Hui, are one group accredited to introducing boba when they decided to put tapioca pearls in their drinks. Their customers loved it and others started creating shops to sell the new drink.</p>
+											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
 											<ul class="actions">
 												<li><a href="generic.html" class="button">Learn more</a></li>
 											</ul>
@@ -182,9 +194,9 @@
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3>New Creations</h3>
+												<h3>Sed nunc ligula</h3>
 											</header>
-											<p>Boba tea has evolved to more than just cold tea with milk and tapioca pearls.  Now, there are are hot drinks, frozen drinks, yogurt drinks, slushie drinks, regular sugar, less sugar, boba, jelly, agar, pudding, and much, much more.  </p>
+											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
 											<ul class="actions">
 												<li><a href="generic.html" class="button">Learn more</a></li>
 											</ul>
@@ -192,14 +204,14 @@
 									</div>
 								</section>
 							</section>
- 
+
 						<!-- Three -->
 							<section id="three">
 								<div class="inner">
 									<header class="major">
-										<h2>Now</h2>
+										<h2>Massa libero</h2>
 									</header>
-									<p>Eventually, it has became normal to see people walking along the street, chatting with friends, and drinking a cup of boba. Young kids and teenagers go to boba shops after school as a place where they can hang out, chill, and grab a bite to eat.  Its colorful liquid and chewy bubbles have managed to attract the attention of many.</p>
+									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
 									<ul class="actions">
 										<li><a href="generic.html" class="button next">Get Started</a></li>
 									</ul>
@@ -207,59 +219,6 @@
 							</section>
 
 					</div>
-
-				<!-- Contact -->
-					<section id="contact">
-						<div class="inner">
-							<section>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section>
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-home"></span>
-										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
-									</div>
-								</section>
-							</section>
-						</div>
-					</section>
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -287,7 +246,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
 
 	</body>
 </html>
