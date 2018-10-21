@@ -3930,4 +3930,7 @@ input, select, textarea {
 			visibility: visible;
 		}
 
-		#mapContainer { z-index: 100; }
+		#mapContainer {
+			z-index: 100;
+			margin: auto;
+		}
