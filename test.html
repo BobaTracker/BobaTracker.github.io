@@ -22,11 +22,6 @@
  *
  * @param  {H.Map} map      A HERE Map instance within the application
  */
-function moveMapToBerlin(map){
-  map.setCenter({lat:37.7942, lng:-122.4070});
-  map.setZoom(14);
-}
-
 
 
 
@@ -50,6 +45,10 @@ var defaultLayers = platform.createDefaultLayers({
 //Step 2: initialize a map  - not specificing a location will give a whole world view.
 var map = new H.Map(document.getElementById('map'),
   defaultLayers.normal.map, {pixelRatio: pixelRatio});
+        platform.createDefaultLayers().normal.map, {
+      center: {lat: 37.7942, lng: -122.4070},
+      zoom: 15
+      });
 var group = new H.map.Group();
 
 
@@ -97,7 +96,7 @@ map.addObject(group);
     search.request(params, {}, onResult, onError);
 
 // Now use the map as required...
-moveMapToBerlin(map);
+
   </script>
 </body>
 </html>
