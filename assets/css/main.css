@@ -115,8 +115,9 @@ input, select, textarea {
 
 /* Type */
 
+/* controls text under titles, text in descrptions, text of menu items*/
 	body, input, select, textarea {
-		color: #fffff0;
+		color: #ffffff;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 17pt;
 		font-weight: 300;
