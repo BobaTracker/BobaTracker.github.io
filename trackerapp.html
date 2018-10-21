@@ -9,8 +9,13 @@
 		<title>BobaTracker - by BobaBois</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
+  		type="text/javascript" charset="utf-8"></script>
+		<script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
+  		type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body class="is-preload">
 
@@ -61,6 +66,29 @@
 							</div>
 						</div>
 					</section>
+
+				<!--map hopefully-->
+				<section id="banner" class="style2">
+					<div style="width: 650px; height: 480px" id="mapContainer"></div>
+					<script>
+					var platform = new H.service.Platform({
+				  	'app_id':'{QQjKXhhY1a8BYAFP4jZE}',
+				  	'app_code':'{uVR5qT32JAnHax6QIA-9EA}'
+					});
+
+					// Obtain the default map types from the platform object:
+					var defaultLayers = platform.createDefaultLayers();
+
+					// Instantiate (and display) a map object:
+					var map = new H.Map(
+				  	document.getElementById('mapContainer'),
+				  	defaultLayers.normal.map,
+				  	{
+				    	zoom:10,
+				    	center: { lat: 37.7223, lng: 122.4489 }
+				  	});
+						</script>
+				</section>
 
 				<!-- Main -->
 					<div id="main">
