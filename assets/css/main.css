@@ -159,7 +159,7 @@ input, select, textarea {
 		text-decoration: none;
 	}
 
-/*controls features on boxes on middle of each page when you hover your mouse over it */
+/*controls features on boxes on middle of each page when you hover your mouse over it // or not*/
 		a:hover {
 			border-bottom-color: transparent;
 			color: #9bf1ff !important;
@@ -2038,9 +2038,9 @@ input, select, textarea {
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
 			background: #ffffff;
-			border-color: #9bf1ff;
+			border-: #9bf1ff;
 			content: '\f00c';
-			color: #242943;
+			: #242943;
 		}
 
 		input[type="checkbox"]:focus + label:before,
