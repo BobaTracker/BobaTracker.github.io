@@ -31,16 +31,45 @@
    });
 
    // Obtain the default map types from the platform object
-    var maptypes = platform.createDefaultLayers();
+    //var maptypes = platform.createDefaultLayers();
 
     // Instantiate (and display) a map object:
     var map = new H.Map(
     document.getElementById('mapContainer'),
     maptypes.normal.map,
     {
-      zoom: 10,
-      center: { lng: 13.4, lat: 52.51 }
+      /*zoom: 10,
+      center: { lng: 13.4, lat: 52.51 }*/
     });
+
+    // Obtain an Explore object through which to submit search
+// requests:
+var search = new H.places.Search(platform.getPlacesService()),
+  searchResult, error;
+
+// Define search parameters:
+var params = {
+  // Plain text search for places with the word "hotel"
+  // associated with them:
+  'q': 'hotel',
+  //  Search in the Chinatown district in San Francisco:
+  'at': '37.7942,-122.4070'
+};
+
+// Define a callback function to handle data on success:
+function onResult(data) {
+  searchResult = data;
+}
+
+// Define a callback function to handle errors:
+function onError(data) {
+  error = data;
+}
+
+// Run a search request with parameters, headers (empty), and
+// callback functions:
+search.request(params, {}, onResult, onError);
+
 
   </script>
 
