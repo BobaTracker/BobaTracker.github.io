@@ -21,6 +21,67 @@
   		type="text/javascript" charset="utf-8"></script>
 		<script src="https://js.api.here.com/v3/3.0/mapsjs-service.js"
   		type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var map;
+      var infowindow;
+
+      function initMap() {
+        var pyrmont = {lat: -33.867, lng: 151.195};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pyrmont,
+          zoom: 15
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['store']
+        }, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+    </script>
 	</head>
 	<body class="is-preload">
 
@@ -71,37 +132,11 @@
 							</div>
 						</div>
 				</section>
-				<form>
- 				 <div>
-  					  <label for="uname">Enter a location </label>
-  					  <input type="text" id="uname" name="name"
-       					    placeholder="Enter an Address or famous landmark">
-					  </div>
-  						<div>
-  					  <button>Submit</button>
- 						 </div>
-					</form>
+				
 				<!--map hopefully-->
 			<!--	<section id="banner" class="style2">-->
-					<div style="width: 650px; height: 480px" id="mapContainer"></div>
-					<script>
-					var platform = new H.service.Platform({
-				  	'app_id':'QQjKXhhY1a8BYAFP4jZE',
-				  	'app_code':'uVR5qT32JAnHax6QIA-9EA',
-						useHTTPS: true
-					});
-
-					// Obtain the default map types from the platform object:
-					var defaultLayers = platform.createDefaultLayers();
-
-					// Instantiate (and display) a map object:
-					var map = new H.Map(
-				  	document.getElementById('mapContainer'),
-				  	defaultLayers.normal.map,
-				  	{
-				    	zoom:10,
-				    	center: {lat: =37.7223, lng: 122.4489}
-				  	});
+					<div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxdUDfaaTkqDYKh3QGm_naKA7SxtdVHuw&libraries=places&callback=initMap" async defer></script>
 						</script>
 	<!--			</section>-->
 
