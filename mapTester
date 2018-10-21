@@ -1,0 +1,34 @@
+
+        // Instantiate a platform object for authentication
+var platform = new H.service.Platform({
+  app_id: '{YOUR_APP_ID}',
+  app_code: '{YOUR_APP_CODE}'
+});
+
+// Obtain an Explore object through which to submit search
+// requests:
+var search = new H.places.Search(platform.getPlacesService()),
+  searchResult, error;
+
+// Define search parameters:
+var params = {
+  // Plain text search for places with the word "hotel"
+  // associated with them:
+  'q': 'hotel',
+  //  Search in the Chinatown district in San Francisco:
+  'at': '37.7942,-122.4070'
+};
+
+// Define a callback function to handle data on success:
+function onResult(data) {
+  searchResult = data;
+}
+
+// Define a callback function to handle errors:
+function onError(data) {
+  error = data;
+}
+
+// Run a search request with parameters, headers (empty), and
+// callback functions:
+search.request(params, {}, onResult, onError);
