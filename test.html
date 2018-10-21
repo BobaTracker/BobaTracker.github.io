@@ -1,89 +1,71 @@
-
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="initial-scale=1.0, 
-      width=device-width" />
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" 
-      type="text/javascript" charset="utf-8"></script>
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" 
-      type="text/javascript" charset="utf-8"></script>
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" 
-      type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="UTF-8"
-      src="http://js.api.here.com/v3/3.0/mapsjs-places.js"></script>
-  
-        
+    <title>Place Searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var map;
+      var infowindow;
+
+      function initMap() {
+        var pyrmont = {lat: -33.867, lng: 151.195};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pyrmont,
+          zoom: 15
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['store']
+        }, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+    </script>
   </head>
-      
-   
-  
-      <body>
-  <div id="map" style="width: 640px; height: 480px"/>
-  <script type="text/javascript" charset="utf-8">
-    // Instantiate the Platform class with authentication and
-    // authorization credentials:
-    var platform = new H.service.Platform({
-      app_id: 'QQjKXhhY1a8BYAFP4jZE',
-      app_code: 'uVR5qT32JAnHax6QIA-9EA',
-          useHTTPS: true
-    });
-
-    // Instantiate a map inside the DOM element with id map. The
-    // map center is in San Francisco, the zoom level is 10:
-    var map = new H.Map(document.getElementById('map'),
-      platform.createDefaultLayers().normal.map, {
-      center: {lat: 37.7942, lng: -122.4070},
-      zoom: 15
-      });
-
-    // Create a group object to hold map markers:
-    var group = new H.map.Group();
-
-    // Create the default UI components:
-    var ui = H.ui.UI.createDefault(map, platform.createDefaultLayers());
-
-    // Add the group object to the map:
-    map.addObject(group);
-
-    // Obtain a Search object through which to submit search
-    // requests:
-    var search = new H.places.Search(platform.getPlacesService()),
-      searchResult, error;
-
-    // Define search parameters:
-    var params = {
-    // Plain text search for places with the word "hotel"
-    // associated with them:
-      'q': 'hotel',
-    //  Search in the Chinatown district in San Francisco:
-      'at': '37.7942,-122.4070'
-    };
-
-    // Define a callback function to handle data on success:
-    function onResult(data) {
-      addPlacesToMap(data.results);
-    }
-
-    // Define a callback function to handle errors:
-    function onError(data) {
-      error = data;
-    }
-
-    // This function adds markers to the map, indicating each of
-    // the located places:
-    function addPlacesToMap(result) {
-      group.addObjects(result.items.map(function (place) {
-      var marker = new H.map.Marker({lat: place.position[0],
-        lng: place.position[1]})
-      return marker;
-      }));
-    }
-
-    // Run a search request with parameters, headers (empty), and
-    // callback functions:
-    search.request(params, {}, onResult, onError);
-
-  </script>
-</body>  
+  <body>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+  </body>
 </html>
