@@ -1,40 +1,62 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>BobaTracker - by BobaBois</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1533195059" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
-	  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
-	  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
-	  <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
-		<script src="https://js.api.here.com/v3/3.0/mapsjs-core.js"
-  		type="text/javascript" charset="utf-8"></script>
-		<script src="https://js.api.here.com/v3/3.0/mapsjs-service.js"
-  		type="text/javascript" charset="utf-8"></script>
-	</head>
-      <body>
-      	<!--map hopefully-->
-			<!--	<section id="banner" class="style2">-->
-					<div style="width: 650px; height: 480px" id="mapContainer"></div>
-					<script>
-					var platform = new H.service.Platform({
-				  	'app_id':'QQjKXhhY1a8BYAFP4jZE',
-				  	'app_code':'uVR5qT32JAnHax6QIA-9EA',
-						useHTTPS: true
-					});
-					// Obtain the default map types from the platform object:
-					var defaultLayers = platform.createDefaultLayers();
-					// Instantiate (and display) a map object:
-					var map = new H.Map(
-				  	document.getElementById('mapContainer'),
-				  	defaultLayers.normal.map,
-				  	{
-				    	zoom:10,
-				    	center: {lat: =37.7223, lng: 122.4489}
-				  	});
-            </script>
-   </body>
+<head>
+<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+<link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1533195059" />
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+
+</head>
+<body>
+  <div id="map" style="width: 100%; height: 400px; background: grey" />
+  <script  type="text/javascript" charset="UTF-8" >
+    
+/**
+ * Moves the map to display over Berlin
+ *
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function moveMapToBerlin(map){
+  map.setCenter({lat:52.5159, lng:13.3777});
+  map.setZoom(14);
+}
+
+
+
+
+
+/**
+ * Boilerplate map initialization code starts below:
+ */
+
+//Step 1: initialize communication with the platform
+var platform = new H.service.Platform({
+  app_id: 'devportal-demo-20180625',
+  app_code: '9v2BkviRwi9Ot26kp2IysQ',
+  useHTTPS: true
+});
+var pixelRatio = window.devicePixelRatio || 1;
+var defaultLayers = platform.createDefaultLayers({
+  tileSize: pixelRatio === 1 ? 256 : 512,
+  ppi: pixelRatio === 1 ? undefined : 320
+});
+
+//Step 2: initialize a map  - not specificing a location will give a whole world view.
+var map = new H.Map(document.getElementById('map'),
+  defaultLayers.normal.map, {pixelRatio: pixelRatio});
+
+//Step 3: make the map interactive
+// MapEvents enables the event system
+// Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+// Create the default UI components
+var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+// Now use the map as required...
+moveMapToBerlin(map);
+  </script>
+</body>
+</html>
