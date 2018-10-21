@@ -3929,3 +3929,5 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
+		#mapContainer { z-index: 100; }
