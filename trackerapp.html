@@ -36,15 +36,15 @@
         var pyrmont = {lat: -33.867, lng: 151.195};
 
         map = new google.maps.Map(document.getElementById('map'), {
-          center: pyrmont,
+          center: location,
           zoom: 15
         });
 
         infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
-          location: pyrmont,
-          radius: 500,
+          location: location,
+          radius: 1000,
           type: ['boba']
         }, callback);
       }
