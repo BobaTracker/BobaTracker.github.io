@@ -60,6 +60,41 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 // Create the default UI components
 var ui = H.ui.UI.createDefault(map, defaultLayers);
+map.addObject(group);
+
+  var search = new H.places.Search(platform.getPlacesService()),
+      searchResult, error;
+
+ // Define search parameters:
+    var params = {
+    // Plain text search for places with the word "hotel"
+    // associated with them:
+      'q': 'hotel',
+    //  Search in the Chinatown district in San Francisco:
+      'at': '37.7942,-122.4070'
+    };
+
+    // Define a callback function to handle data on success:
+    function onResult(data) {
+      addPlacesToMap(data.results);
+    }
+
+    // Define a callback function to handle errors:
+    function onError(data) {
+      error = data;
+    }
+      // the located places:
+    function addPlacesToMap(result) {
+      group.addObjects(result.items.map(function (place) {
+      var marker = new H.map.Marker({lat: place.position[0],
+        lng: place.position[1]})
+      return marker;
+      }));
+    }
+
+    // Run a search request with parameters, headers (empty), and
+    // callback functions:
+    search.request(params, {}, onResult, onError);
 
 // Now use the map as required...
 moveMapToBerlin(map);
