@@ -2828,11 +2828,11 @@ input, select, textarea {
 			}
 
 			.tiles article:nth-child(6n - 1):before {
-				background-color: #8ea9e8;
+				background-color: #ffeeee;
 			}
 
 			.tiles article:nth-child(6n):before {
-				background-color: #87c5a4;
+				background-color: #fff4ea;
 			}
 
 		@media screen and (max-width: 1280px) {
@@ -3256,11 +3256,11 @@ input, select, textarea {
 			}
 
 			#header.alt.style5 .logo strong {
-				color: #8ea9e8;
+				color: #ffeeee;
 			}
 
 			#header.alt.style6 .logo strong {
-				color: #87c5a4;
+				color: #fff4ea;
 			}
 
 		body.is-preload #header.alt {
@@ -3488,11 +3488,11 @@ input, select, textarea {
 		}
 
 		#banner.style5:after {
-			background-color: #8ea9e8;
+			background-color: #ffeeee;
 		}
 
 		#banner.style6:after {
-			background-color: #87c5a4;
+			background-color: #fff4ea;
 		}
 
 		body.is-preload #banner:after {
