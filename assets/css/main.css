@@ -99,7 +99,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #242943;
+		background: #ffdef2;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -1959,7 +1959,7 @@ input, select, textarea {
 
 		select option {
 			color: #ffffff;
-			background: #242943;
+			background: #ffdef2;
 		}
 
 		select:focus::-ms-value {
@@ -2040,7 +2040,7 @@ input, select, textarea {
 			background: #ffffff;
 			border-: #9bf1ff;
 			content: '\f00c';
-			: #242943;
+			: #ffdef2;
 		}
 
 		input[type="checkbox"]:focus + label:before,
@@ -2116,7 +2116,7 @@ input, select, textarea {
 		.icon.alt:before {
 			background-color: #ffffff;
 			border-radius: 100%;
-			color: #242943;
+			color: #ffdef2;
 			display: inline-block;
 			height: 2em;
 			line-height: 2em;
@@ -2379,12 +2379,12 @@ input, select, textarea {
 
 				ul.pagination li > .page.active {
 					background-color: #ffffff;
-					color: #242943;
+					color: #ffdef2;
 				}
 
 					ul.pagination li > .page.active:hover {
 						background-color: #9bf1ff;
-						color: #242943 !important;
+						color: #ffdef2 !important;
 					}
 
 					ul.pagination li > .page.active:active {
@@ -2654,7 +2654,7 @@ input, select, textarea {
 		.button.primary {
 			background-color: #ffffff;
 			box-shadow: none;
-			color: #242943;
+			color: #ffdef2;
 		}
 
 			input[type="submit"].primary:hover, input[type="submit"].primary:active,
@@ -2667,7 +2667,7 @@ input, select, textarea {
 			.button.primary:hover,
 			.button.primary:active {
 				background-color: #9bf1ff;
-				color: #242943 !important;
+				color: #ffdef2 !important;
 			}
 
 			input[type="submit"].primary:active,
@@ -3126,7 +3126,7 @@ input, select, textarea {
 				-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				background-color: #ffffff;
-				color: #242943;
+				color: #ffdef2;
 				display: inline-block;
 				line-height: 1.65em;
 				margin-right: 0.325em;
